@@ -48,8 +48,8 @@ def bg(data):
         
 @client.command()
 def gold(data):
-   Gold=(“Here’s your Gold 👑”)
-   data.subClient.send_message(data.chatId, message=Gold)
+  open("gold.png", "g") as go:
+  data.subClient.send_message(chatId=data.chatId, file=go, fileType="image")
 	
 client.launch()
 print("ready")
