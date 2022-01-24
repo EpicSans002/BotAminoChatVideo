@@ -45,8 +45,11 @@ def bg(data):
       urllib.request.urlretrieve(image, filename)
       with open(filename, 'rb') as fp:
         data.subClient.send_message(chatId=data.chatId, file=fp, fileType="image")
+        
+@client.command()
+def Gold(data):
+  data.subClient.send_message(data.chatId, message="Here's your Gold 👑")
 	
 client.launch()
 print("ready")
-
 
