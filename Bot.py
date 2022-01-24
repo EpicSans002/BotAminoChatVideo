@@ -47,8 +47,9 @@ def bg(data):
         data.subClient.send_message(chatId=data.chatId, file=fp, fileType="image")
         
 @client.command()
-def Gold(data):
-  data.subClient.send_message(data.chatId, message="Here's your Gold 👑")
+def gold(data):
+   Gold=(“Here’s your Gold 👑”)
+   data.subClient.send_message(data.chatId, message=Gold)
 	
 client.launch()
 print("ready")
