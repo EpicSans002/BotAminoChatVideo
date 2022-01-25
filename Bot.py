@@ -14,15 +14,19 @@ client.prefix = "/"  # set the prefix to /
 client.wait = 4  # wait 4 sec before doing a new command
 
 comid= 165549708
-chatid= 'b240367a-8a5a-4d93-aaa8-dd40fe42c711'
 
 client.add_community(comid)
 subclient = client.get_community(comid)
-subclient.join_chatroom("http://aminoapps.com/p/k6wfjvy")
+subclient.join_chatroom("6934ee2b-fe70-48c7-92a2-47b2e8b97d88")
 
 @client.command()
 def help(data):
-  help = ("Bot Help Menu                                     startvc      -to start Vc                    endvc        -to end Vc                startVideo   -to start video                    bg                - get background image")
+  help = ("""Bot Help Menu
+/startvc ~~~~~> to start Vc
+/endvc ~~~~~> to end Vc                
+/startVideo ~~~~~> start video                    
+/bg ~~~~~> get background image
+/gold ~~~~~> get some Golds """)
   data.subClient.send_message(data.chatId, message=help)
 
 @client.command()
