@@ -49,7 +49,7 @@ def bg(data):
 @client.command()
 def gold(data):
   with open('FB51D59A-65DD-4888-BD22-177D7DA9F57F.png', 'rb') as go:
-  data.subClient.send_message(chatId=data.chatId, file=go, fileType="image")
+    data.subClient.send_message(chatId=data.chatId, file=go, fileType="image")
 	
 client.launch()
 print("ready")
