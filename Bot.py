@@ -58,6 +58,7 @@ def gold(data):
 
 @client.command()
 def gif_search(data):
+  search = message
   response = requests.get(
       'http://api.giphy.com/v1/gifs/search?q=' + search +
 	     '&api_key=1jdqvfFwB2Vf12z6ZJ72sqkYm1yz0VVM&limit=10')
