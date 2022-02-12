@@ -57,10 +57,8 @@ def gold(data):
 
 @client.command()
 def gif_search(data):
-  data.subClient.delete_message(chatId, messageId, asStaff=True)
-  except:
-    data.subClient.delete_message(chatId, messageId)
-    response = requests.get(
+  data.subClient.delete_message(chatId, messageId)
+  response = requests.get(
       'http://api.giphy.com/v1/gifs/search?q=' + search +
 	    '&api_key=1jdqvfFwB2Vf12z6ZJ72sqkYm1yz0VVM&limit=10')
 	# print(response.text)
@@ -73,10 +71,8 @@ def gif_search(data):
    filename = image.split("/")[-1]
    urllib.request.urlretrieve(image, filename)
    with open(filename, 'rb') as fp:
-
-with suppress(Exception):
-  data.subClient.send_message(chatId, file=fp, fileType="image")
-  print(os.remove(filename))
+     data.subClient.send_message(chatId, file=fp, fileType="image")
+     print(os.remove(filename))
 
 	
 client.launch()
