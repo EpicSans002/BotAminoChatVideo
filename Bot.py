@@ -3,6 +3,7 @@ from BotAmino import BotAmino, Parameters
 import urllib
 import os
 import time
+import requests
 import sys
 
 print("wait...")
