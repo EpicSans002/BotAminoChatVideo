@@ -17,7 +17,7 @@ comid= 165549708
 
 client.add_community(comid)
 subclient = client.get_community(comid)
-subclient.join_chatroom(” 6934ee2b-fe70-48c7-92a2-47b2e8b97d88”)
+subclient.join_chatroom(”6934ee2b-fe70-48c7-92a2-47b2e8b97d88”)
 
 @client.command()
 def help(data):
