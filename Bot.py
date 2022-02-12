@@ -54,6 +54,30 @@ def bg(data):
 def gold(data):
   with open('FB51D59A-65DD-4888-BD22-177D7DA9F57F.png', 'rb') as go:
     data.subClient.send_message(chatId=data.chatId, file=go, fileType="image")
+
+@client.command()
+def gif_search(data):
+  data.subClient.delete_message(chatId, messageId, asStaff=True)
+  except:
+    data.subClient.delete_message(chatId, messageId)
+    response = requests.get(
+      'http://api.giphy.com/v1/gifs/search?q=' + search +
+	    '&api_key=1jdqvfFwB2Vf12z6ZJ72sqkYm1yz0VVM&limit=10')
+	# print(response.text)
+ datas = json.loads(response.text)
+ gif_choice = random.randint(0, 9)
+ image = datas['data'][gif_choice]['images']['original']['url']
+ print("URL", image)
+ if image is not None:
+   print(image)
+   filename = image.split("/")[-1]
+   urllib.request.urlretrieve(image, filename)
+   with open(filename, 'rb') as fp:
+
+with suppress(Exception):
+  data.subClient.send_message(chatId, file=fp, fileType="image")
+  print(os.remove(filename))
+
 	
 client.launch()
 print("ready")
