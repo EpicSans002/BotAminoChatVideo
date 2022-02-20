@@ -1,5 +1,6 @@
 BotAmino
-dick.py
+amino.py
 pyfiglet
 colorama
 requests
+giphy_client
