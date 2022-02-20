@@ -3,6 +3,7 @@ import giphy_client as gc
 from giphy_client.rest import ApiException  
 from BotAmino import BotAmino, Parameters
 import urllib
+import randint
 import os
 import time
 import requests
