@@ -1,4 +1,6 @@
 import BotAmino
+import giphy_client as gc
+from giphy_client.rest import ApiException  
 from BotAmino import BotAmino, Parameters
 import urllib
 import os
@@ -57,23 +59,20 @@ def gold(data):
     data.subClient.send_message(chatId=data.chatId, file=go, fileType="image")
 
 @client.command()
-def gif_search(message=None, messageId=None, authorId=None, author=None):
-  search = message
-  response = requests.get(
-      'http://api.giphy.com/v1/gifs/search?q=' + search +
-	     '&api_key=1jdqvfFwB2Vf12z6ZJ72sqkYm1yz0VVM&limit=10')
-  #print(response.text)
-  data = json.loads(response.text)
-  gif_choice = random.randint(0, 9)
-  image = data['data'][gif_choice]['images']['original']['url']
-  print("URL", image)
-  if image is not None:
-    print(image)
-    filename = image.split("/")[-1]
-    urllib.request.urlretrieve(image, filename)
-    with open(filename, 'rb') as fp:
-      subClient.send_message(chatId, file=fp, fileType="gif")
-      print(os.remove(filename))
+def gif(data):
+  api_instance = gc.DefaultApi()
+  api_key = 'apna api key'
+  query = data.message
+  fmt = 'gif'
+  response = api_instance.gifs_search_get(api_key,query,limit=1,offset=randint(1,10),fmt=fmt)
+  gif = response.data[0]
+  url= gif.images.downsized.url
+  #print(url)
+
+  urllib.request.urlretrieve(url,f"{data.message}.gif")
+  with open(f"{data.message}.gif","rb") as file:
+  	data.subClient.send_message(chatId=data.chatId,file=file,fileType="gif")
+  	os.remove(f"{data.message}.gif")
 
 	
 client.launch()
