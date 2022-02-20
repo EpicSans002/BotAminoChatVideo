@@ -4,3 +4,4 @@ pyfiglet
 colorama
 requests
 giphy_client
+json_minify
