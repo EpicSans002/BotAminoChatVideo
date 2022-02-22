@@ -3,7 +3,7 @@ import giphy_client as gc
 from giphy_client.rest import ApiException  
 from BotAmino import BotAmino, Parameters
 import urllib
-import randint
+import random
 import os
 import time
 import requests
@@ -65,7 +65,7 @@ def gif(data):
   api_key = 'apna api key'
   query = data.message
   fmt = 'gif'
-  response = api_instance.gifs_search_get(api_key,query,limit=1,offset=randint(1,10),fmt=fmt)
+  response = api_instance.gifs_search_get(api_key,query,limit=1,offset=random.randint(1,10),fmt=fmt)
   gif = response.data[0]
   url= gif.images.downsized.url
   #print(url)
